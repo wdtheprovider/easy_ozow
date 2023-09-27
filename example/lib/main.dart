@@ -1,8 +1,11 @@
 import 'package:example/failed.dart';
 import 'package:example/success.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ozow/res/ozow_payment.dart';
 import 'package:flutter_ozow/res/ozow_payment_ui.dart';
+import 'package:onepref/onepref.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'cancel.dart';
 
 void main() {
@@ -24,6 +27,9 @@ class _MyAppState extends State<MyApp> {
   bool paymentLinkFound = false;
   bool paymentLinkGenerated = false;
   bool payWithOzow = false;
+  bool linkRequested = false;
+
+  final _messangerKey = GlobalKey<ScaffoldMessengerState>();
 
   final TextEditingController _controller = TextEditingController();
 
@@ -61,10 +67,22 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  Future<void> openUrlBrowser(String link) async {
+    final Uri url = Uri.parse(link.trim());
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Ozow',
+      scaffoldMessengerKey: _messangerKey,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
@@ -109,20 +127,42 @@ class _MyAppState extends State<MyApp> {
                                 Container(
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 40, vertical: 15),
-                                  child: const Row(
+                                  child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text(
-                                        "Open Link",
-                                        style: TextStyle(
-                                          color: Colors.blue,
+                                      OnClickAnimation(
+                                        onTap: () => {
+                                          if (generatedPaymentUrl
+                                              .contains("pay.ozow.com"))
+                                            {
+                                              openUrlBrowser(
+                                                  generatedPaymentUrl)
+                                            },
+                                        },
+                                        child: const Text(
+                                          "Open Link",
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                          ),
                                         ),
                                       ),
-                                      Text(
-                                        "Copy Link",
-                                        style: TextStyle(
-                                          color: Colors.blue,
+                                      OnClickAnimation(
+                                        onTap: () {
+                                          Clipboard.setData(ClipboardData(
+                                                  text: generatedPaymentUrl))
+                                              .then((_) {
+                                            _messangerKey.currentState!
+                                                .showSnackBar(const SnackBar(
+                                                    content: Text(
+                                                        "Payment Link copied to clipboard")));
+                                          });
+                                        },
+                                        child: const Text(
+                                          "Copy Link",
+                                          style: TextStyle(
+                                            color: Colors.blue,
+                                          ),
                                         ),
                                       )
                                     ],
@@ -130,7 +170,9 @@ class _MyAppState extends State<MyApp> {
                                 )
                               ],
                             )
-                          : const CircularProgressIndicator(),
+                          : Visibility(
+                              visible: linkRequested,
+                              child: const CircularProgressIndicator()),
                       const SizedBox(
                         height: 20,
                       ),
@@ -145,7 +187,12 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => {createPayment(1)},
+                        onTap: () => {
+                          setState(() {
+                            linkRequested = true;
+                          }),
+                          createPayment(1)
+                        },
                         child: const Text(
                           "Generate Payment Link",
                           style: TextStyle(
