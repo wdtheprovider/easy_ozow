@@ -1,9 +1,9 @@
+import 'package:easy_ozow/easy_ozow.dart';
 import 'package:example/failed.dart';
 import 'package:example/success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ozow/res/ozow_payment.dart';
-import 'package:flutter_ozow/res/ozow_payment_ui.dart';
+
 import 'package:onepref/onepref.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'cancel.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  FlutterOzow flutterOzow = FlutterOzow();
+  EasyOzow easyOzow = EasyOzow();
 
   String url = "";
   String generatedPaymentUrl = "";
@@ -36,16 +36,16 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    flutterOzow.init(
-      apiKey: "TyHlLf46efVRiHvqy0neaLleaRQogGsR",
-      privateKey: "HzHiOfumUq0bDRDugxEV5tHEtrEwYXeK",
-      siteCode: "WDT-WDT-001",
+    easyOzow.init(
+      apiKey: "--",
+      privateKey: "--",
+      siteCode: "---",
       isTest: true,
     );
   }
 
   void createPayment(int button) async {
-    await flutterOzow
+    await easyOzow
         .generatePaymentLink(
       amount: double.tryParse(_controller.text) ??
           0.10, // convert string to double, if null use R0.10c

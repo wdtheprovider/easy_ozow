@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
 
-class FlutterOzow {
+class EasyOzow {
   String _apiKey = "";
   String _privateKey = "";
   String _siteCode = "";
@@ -32,10 +32,6 @@ class FlutterOzow {
         }
       ];
     } else {
-      /*  
-    example:
-    https://api.ozow.com/GetTransactionReport?SiteCode=WDT-WDT-001&StartDate=2023-08-12&EndDate=2023-08-22
-    */
       var request = http.Request(
           'GET',
           Uri.parse(

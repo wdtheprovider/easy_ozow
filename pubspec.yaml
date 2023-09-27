@@ -1,7 +1,7 @@
-name: flutter_ozow
+name: easy_ozow
 description: A flutter package to work with ozow payments
-version: 0.0.1
-homepage:
+version: 0.0.4
+homepage: https://github.com/wdtheprovider/easy_ozow
 
 environment:
   sdk: '>=3.0.6 <4.0.0'

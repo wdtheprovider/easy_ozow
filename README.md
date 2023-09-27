@@ -1,4 +1,4 @@
-Package Name: Flutter Ozow 
+Package Name: Easy Ozow
 
 Best and easy way to INTEGRATE Ozow checkout in Flutter application, this package is not an official package from ozow.com
 . Happy implementing this package into your app.
@@ -8,6 +8,26 @@ Best and easy way to INTEGRATE Ozow checkout in Flutter application, this packag
 - Generate Payment Link
 - Ozow Payment UI (Using WebView)
 - Get Payment History
+
+
+<table>
+<thead>
+<tr>
+<th align="center">Pay in App (Webview)</th>
+<th align="center">Choose a bank</th>
+<th align="center">Bank authorization</th>
+<th align="center">Payment is complete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><img src="https://dingi.icu/easyOzow/ss1.png" alt=""></td>
+<td align="center"><img src="https://dingi.icu/easyOzow/ss2.png" alt=""></td>
+<td align="center"><img src="https://dingi.icu/easyOzow/ss3.png" alt=""></td>
+<td align="center"><img src="https://dingi.icu/easyOzow/ss4.png" alt=""></td>
+</tr>
+</tbody>
+</table>
 
 ## Getting started (Required)
 
@@ -85,4 +105,6 @@ cancelScreen: const Cancel(),
 
 ## Additional information
 
-Developers are welcome to contribute to this open source package and report any issues, explore it on github: [https://github.com/wdtheprovider/flutter_ozow](https://github.com/wdtheprovider/flutter_ozow)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=KPSJWR36UHBV2)
+
+Developers are welcome to contribute to this open source package and report any issues, explore it on github: [https://github.com/wdtheprovider/easy_ozow](https://github.com/wdtheprovider/easy_ozow)

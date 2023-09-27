@@ -1,3 +1,5 @@
-## 0.0.1
+## 0.0.4
 
-* TODO: Describe initial release.
+*  Generate Payment Link.
+*  Get Transaction Report.
+*  Ozow Payment UI.
