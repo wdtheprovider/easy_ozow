@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Ozow',
+      title: 'Easy Ozow',
       scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
           appBar: AppBar(
-            title: const Text("Flutter Ozow"),
+            title: const Text("Easy Ozow"),
             backgroundColor: Colors.greenAccent,
           ),
           body: payWithOzow
