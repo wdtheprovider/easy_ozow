@@ -48,7 +48,7 @@ Three easy steps to get started
 void initState() {
   super.initState();
   
-  flutterOzow.init(
+  easyOzow.init(
     apiKey: "------------------",
     privateKey: "-----------------",
     siteCode: "--------",
@@ -67,7 +67,7 @@ void initState() {
 
 ```dart
   void generatePaymentLink() async {
-    await flutterOzow
+    await easyOzow
         .generatePaymentLink(
       amount: 0.10,  // Enter the amount you want for the customer to pay.
       successUrl: "https://dingi.icu/easyOzow/successLink.php",
@@ -108,3 +108,5 @@ cancelScreen: const Cancel(),
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=KPSJWR36UHBV2)
 
 Developers are welcome to contribute to this open source package and report any issues, explore it on github: [https://github.com/wdtheprovider/easy_ozow](https://github.com/wdtheprovider/easy_ozow)
+
+Need help?: [velly.dingaan17@gmail.com](mailto:velly.dingaan17@gmail.com)

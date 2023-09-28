@@ -1,6 +1,6 @@
 name: easy_ozow
-description: A flutter package to work with ozow payments
-version: 0.0.4
+description: An easy flutter package to implement Ozow payment gateway into your flutter app in two steps.
+version: 0.0.6
 homepage: https://github.com/wdtheprovider/easy_ozow
 
 environment:
@@ -24,3 +24,8 @@ dev_dependencies:
   
 
 flutter:
+
+platforms:
+  android:
+  ios:
+  macos:
