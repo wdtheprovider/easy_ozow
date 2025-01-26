@@ -1,3 +1,8 @@
+## 0.0.8
+
+* Update packages and resolved some deprecations in the code.
+* API Updates
+
 ## 0.0.7
 
 * Generate Payment Link.
