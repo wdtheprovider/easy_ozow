@@ -1,4 +1,5 @@
-import 'package:easy_ozow/easy_ozow.dart';
+import 'package:easy_ozow/res/ozow_payment.dart';
+import 'package:easy_ozow/res/ozow_payment_ui.dart';
 import 'package:example/failed.dart';
 import 'package:example/success.dart';
 import 'package:flutter/material.dart';

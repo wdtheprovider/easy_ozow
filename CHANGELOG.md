@@ -1,3 +1,7 @@
+## 0.0.9
+
+* Update packages and resolved some deprecations in the code.
+
 ## 0.0.8
 
 * Update packages and resolved some deprecations in the code.
