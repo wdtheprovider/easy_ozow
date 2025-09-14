@@ -1,3 +1,8 @@
+## 0.0.10
+
+* Update packages and resolved some deprecations in the code.
+* Support 16kb memory page size
+
 ## 0.0.9
 
 * Update packages and resolved some deprecations in the code.
